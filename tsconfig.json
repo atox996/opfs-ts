@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* ================= Core Configuration ================= */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+
+    /* ================= Type Checking ================= */
+    "strict": true,
+
+    /* ================= Module Resolution ================= */
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+
+    /* ========== Type Declaration Output ========== */
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedDeclarations": true,
+
+    /* ================= Compilation Options ================= */
+    "outDir": "./dist",
+
+    /* ================= Vite Types ================= */
+    "types": ["vite/client"]
+  },
+  "exclude": ["node_modules", "**/dist"]
+}

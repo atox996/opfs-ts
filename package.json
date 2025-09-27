@@ -1,0 +1,93 @@
+{
+  "name": "opfs-ts",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "OPFS (Origin Private File System) JavaScript wrapper with TypeScript support",
+  "keywords": [
+    "opfs",
+    "origin private file system",
+    "file system",
+    "fs",
+    "storage",
+    "cache",
+    "browser"
+  ],
+  "homepage": "https://github.com/atox996/opfs-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atox996/opfs-ts.git"
+  },
+  "author": "atox996 <atox996@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.17.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build && typedoc",
+    "lint": "pnpm prettier && pnpm eslint && pnpm tscheck",
+    "eslint": "eslint . --cache --fix",
+    "tscheck": "tsc --noEmit",
+    "prettier": "prettier . --cache --write --ignore-unknown",
+    "bumpp": "bumpp",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.35.0",
+    "@microsoft/api-extractor": "^7.52.13",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^24.4.0",
+    "@vitest/browser": "^3.2.4",
+    "bumpp": "^10.2.3",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.4.0",
+    "lint-staged": "^16.1.6",
+    "playwright": "^1.55.0",
+    "prettier": "^3.6.2",
+    "simple-git-hooks": "^2.13.1",
+    "typedoc": "^0.28.13",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.43.0",
+    "unplugin-dts": "1.0.0-beta.6",
+    "vite": "^7.1.5",
+    "vitest": "^3.2.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx --no -- commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --cache --write --ignore-unknown",
+      "eslint --cache --fix"
+    ],
+    "**/*.{ts,tsx}": [
+      "sh -c 'pnpm tscheck'"
+    ]
+  }
+}
